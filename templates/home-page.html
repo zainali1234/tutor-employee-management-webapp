@@ -1,0 +1,23 @@
+{% extends "user-page.html" %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<h2 class="home-title">What would you like to do today, {{user.first_name}}?</h2>
+<div class="home-options">
+    <a href="/account/fill-out-session">Fill out a tutoring session.</a>
+<br>
+    <a href="/account/past-session-data">Examine your past session data.</a>
+<br>
+{% if user.admin_status %}
+    <a href="/account/manage-employee-database">Manage employee database. (Admin)</a>
+<br>
+    <a href="/account/manage-session-database">Manage session database. (Admin)</a>
+<br>
+    <a href="/account/manage-student-database">Manage student database. (Admin)</a>
+<br>
+{% endif %}
+    <a href="/account/account-settings">Update your account settings.</a>
+<br>
+
+</div>
+{% endblock %}

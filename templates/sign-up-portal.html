@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <title> Employee Portal </title>
+    <style>
+        body {
+            margin: 0px;
+            padding: 0;
+            background-color: #5CDB95;
+            font-family: 'Roboto';
+        }
+        .login-bubble {
+            width: 382px;
+            overflow: hidden;
+            margin: auto;
+            margin-top: 22px;
+            padding-bottom: 15px;
+            padding-top: 50px;
+            padding-right: 35px;
+            padding-left: 35px;
+            background: #05386B;
+            border-radius: 15px;
+        }
+        .login-title {
+            color: #EDF5E1;
+        }
+        .btn {
+            text-align: center;
+            margin-left: 120px;
+            margin-top: 5px;
+            padding: 1px;
+            width: 75px;
+            height 8px;
+            background-color: #EDF5E1;
+            cursor: pointer;
+        }
+        .label {
+            color: #EDF5E1;
+            display: inline;
+        }
+        .input-function {
+            width: 98%;
+            height: 30px;
+            background-color: #EDF5E1;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+        .alert alert-danger alter-dismissable fade show {
+            margin-bottom: 0px;
+
+        }
+        .registration-link {
+            color: #EDF5E1;
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+<div class="login-bubble">
+    <form method="POST" autocomplete="off">
+    <h2 class="login-title" align="center">Employee Registration</h2>
+        <label class="label">First Name</label>
+        <input class="input-function"
+      type="name"
+      class="form-control"
+      id="firstname"
+      name="firstname"
+      placeholder="Enter your first name"
+    />
+        <label class="label">Last Name</label>
+        <input class="input-function"
+      type="name"
+      class="form-control"
+      id="lastname"
+      name="lastname"
+      placeholder="Enter your last name"
+    />
+        <label class="label" for="email">Email Address</label>
+        <input class="input-function"
+      type="email"
+      class="form-control"
+      id="email"
+      name="email"
+      placeholder="Enter email"
+    />
+        <label class="label">Username</label>
+        <input class="input-function"
+      type="username"
+      class="form-control"
+      id="username"
+      name="username"
+      placeholder="Create a username"
+    />
+        <label class="label">Password</label>
+    <input class="input-function"
+      type="password"
+      class="form-control"
+      id="password1"
+      name="password1"
+      placeholder="Create a password"
+    />
+        <label class="label">Retype Password</label>
+    <input class="input-function"
+      type="password"
+      class="form-control"
+      id="password2"
+      name="password2"
+      placeholder="Retype password"
+    />
+        <label class="label">Please check your admin status:</label>
+    <select name="admin_status_select">
+    <option value=True>Yes</option>
+    <option value=False selected>No</option>
+    </select>
+
+    {% with messages = get_flashed_messages(with_categories=true) %} {% if
+    messages %} {% for category, message in messages %} {% if category ==
+    'error' %}
+    <div class="alert alert-danger alter-dismissable fade show" role="alert">
+      {{ message }}
+      <button type="button" class="close" data-dismiss="alert">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {% else %}
+    <div class="alert alert-success alter-dismissable fade show" role="alert">
+      {{ message }}
+      <button type="button" class="close" data-dismiss="alert">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {% endif %} {% endfor %} {% endif %} {% endwith %}
+
+    <button type="submit" class="btn">Register</button>
+    </form>
+    <p class="registration-link">Already have an account? <a href=login><u>Login here.</u></a></p>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+</div>
+</body>
+</html>

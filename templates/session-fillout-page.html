@@ -1,0 +1,77 @@
+{% extends "user-page.html" %}
+{% block title %}Fill Out Session{% endblock %}
+
+{% block content %}
+<div align="center">
+<h2>Tutoring Session Form Fill-Out</h2>
+<h4>Please fill out information regarding your most recent tutoring session here.</h4>
+<form method="POST" autocomplete="off">
+    <div>
+    <label class="label">1.) Enter the name of the student you tutored: </label>
+    <select id="student-name" name="student-name">
+        <option value="select-name">Select student name</option>
+        {% for student in students %}
+        <option value="{{ student.name }}">{{ student.name }}</option>
+        {% endfor %}
+    </select>
+    </div>
+    <br>
+    <div>
+    <label class="label">2.) Enter the name of the subject (Ex: Algebra 2, Biochemistry): </label>
+    <input class="input"
+      id="subject-name"
+      name="subject-name"
+      placeholder="Enter subject name"
+    />
+    </div>
+    <br>
+    <div>
+    <label class="label">3.) Enter how long your session lasted (in minutes): </label>
+    <input class="input"
+      id="time-length"
+      name="time-length"
+      placeholder="Enter session time length"
+    />
+    </div>
+    <br>
+    <div>
+    <label class="label">4.) Give a rating of how academically proficient the student was during their session from 1 (weak) through 5 (strong): </label>
+    <input class="input"
+      id="proficiency-level"
+      name="proficiency-level"
+      placeholder="Enter proficiency level"
+    />
+    </div>
+    <br>
+    <div>
+    <label class="label">5.) Give a brief description on how the session went, as well as
+        what you think can be improved next time: </label>
+    </div>
+    <textarea class="desc-input"
+      id="description"
+      name="description">
+    </textarea>
+    <br>
+    <button class="btn btn-primary">Submit Form</button>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    {% for category, message in messages %}
+    {% if category == 'error' %}
+    <div class="alert alert-danger alter-dismissable fade show" role="alert">
+      {{ message }}
+      <button type="button" class="close" data-dismiss="alert">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {% else %}
+    <div class="alert alert-success alter-dismissable fade show" role="alert">
+      {{ message }}
+      <button type="button" class="close" data-dismiss="alert">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {% endif %} {% endfor %} {% endif %} {% endwith %}
+</form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "user-page.html" %}
+{% block title %}Delete Student{% endblock %}
+
+{% block content %}
+<div align="center">
+<h3>Delete Student</h3>
+<form method="POST" autocomplete="off">
+<select id="delete-student-id" name="delete-student-id">
+    <option value="select-name">Select student</option>
+    {% for student in students %}
+    <option value="{{ student.id }}">{{ student.name }} (ID: {{ student.id }})</option>
+    {% endfor %}
+</select>
+<button>Delete Student</button>
+</form>
+</div>
+{% endblock %}

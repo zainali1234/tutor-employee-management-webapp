@@ -1,0 +1,13 @@
+{% extends "user-page.html" %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<h2 class="manage-database-title">How would you like to manage the student database?</h2>
+<div class="home-options">
+    <a href="/account/student-database">Check the student database.</a>
+    <br>
+    <a href="/account/register-student">Register a student to database.</a>
+    <br>
+    <a href="/account/delete-student">Delete a student from the database.</a>
+</div>
+{% endblock %}

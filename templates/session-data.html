@@ -1,0 +1,46 @@
+{% extends "user-page.html" %}
+{% block title %}Session Data{% endblock %}
+
+{% block content %}
+<table>
+    <tr>
+        <th scope="col">Sess. #</th>
+        <th scope="col">Student</th>
+        <th scope="col">Subject</th>
+        <th scope="col">Proficiency Level</th>
+        <th scope="col">Time Length (in minutes)</th>
+        <th class='session-description' scope="col">Description</th>
+        <th scope="col">Date Logged</th>
+    </tr>
+    {% for session in user.session_forms %}
+    <tr>
+        <th scope="row">{{ loop.index }}</th>
+        <td>{{session.student_name}}</td>
+        <td>{{session.subject_name}}</td>
+        <td>{{session.proficiency_level}}</td>
+        <td>{{session.time_length}} min</td>
+        <td>{{session.description}}</td>
+        <td>{{session.date}}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

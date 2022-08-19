@@ -1,0 +1,36 @@
+{% extends "user-page.html" %}
+{% block title %}Employee Database{% endblock %}
+
+{% block content %}
+<table>
+    <tr>
+        <th scope="col">Employee ID</th>
+        <th scope="col">Employee First Name</th>
+        <th scope="col">Employee Last Name</th>
+        <th scope="col">Employee UserName</th>
+        <th scope="col">Employee Email</th>
+        <th scope="col">Admin Status</th>
+        <th scope="col">Number Of Sessions Logged</th>
+    </tr>
+
+    {% for employee in employees %}
+    <tr>
+        <td>{{employee.id}}</td>
+        <td>{{employee.first_name}}</td>
+        <td>{{employee.last_name}}</td>
+        <td>{{employee.username}}</td>
+        <td>{{employee.email}}</td>
+        <td>{{employee.admin_status}}</td>
+        <td>
+            {% set count = namespace(value=0) %}
+            {% for session in sessions %}
+            {% if session.employee_id == employee.id %}
+            {% set count.value = count.value + 1 %}
+            {% endif %}
+            {% endfor %}
+            {{count.value}}
+        </td>
+    </tr>
+    {% endfor%}
+</table>
+{% endblock %}

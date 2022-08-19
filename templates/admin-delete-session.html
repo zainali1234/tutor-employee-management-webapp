@@ -1,0 +1,17 @@
+{% extends "user-page.html" %}
+{% block title %}Delete Session{% endblock %}
+
+{% block content %}
+<div align="center">
+<h3>Delete Session</h3>
+<form method="POST" autocomplete="off">
+<select id="delete-session-id" name="delete-session-id">
+    <option value="select-name">Select session</option>
+    {% for session in sessions %}
+    <option value="{{ session.id }}">{{ session.date }} (ID: {{ session.id }})</option>
+    {% endfor %}
+</select>
+<button>Delete Session</button>
+</form>
+</div>
+{% endblock %}

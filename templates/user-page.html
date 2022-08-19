@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <style>
+        body{
+            margin: 0px;
+            background-color: #8EE4AF;
+            font-family: 'Roboto';
+        }
+        .body-page {
+            background-color: #8EE4AF;
+        }
+        .headernav {
+            background-color: #5CDB95;
+            overflow: hidden;
+        }
+        .headernav a {
+            float: left;
+            text-align: center;
+            padding: 18px 18px;
+            text-decoration: none;
+            font-size: 17px;
+            margin-bottom: 0px;
+            cursor: pointer;
+            transition: 0.10s;
+        }
+        .headernav p {
+            float: right;
+            text-align: center;
+            padding: 18px 18px;
+            text-decoration: none;
+            font-size: 17px;
+            margin-top:0px;
+            margin-bottom: 0px;
+            transition: 0.10s;
+        }
+
+        .headernav a, a:hover, a:focus, a:active {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .headernav a:hover {
+            background-color: #05386B;
+            color: #EDF5E1;
+        }
+
+        .headernav a:active {
+            background-color: #04AA6D;
+            color: white;
+        }
+        .btn {
+            text-align: center;
+            margin-top: 15px;
+            width: 85px;
+            height 8px;
+            background-color: #EDF5E1;
+            cursor: pointer;
+        }
+        .desc-input {
+            width: 565px;
+            height: 70px;
+        }
+        table {
+            border-collapse: collapse;
+            letter-spacing: 1px;
+            font-family: sans-serif;
+            font-size: .8rem;
+            width: 100%;
+        }
+        th {
+            border: 1px solid black;
+            padding-bottom: 8px;
+            padding-top: 8px;
+            padding-right: 25px;
+            padding-left: 25px;
+        }
+        td {
+            text-align: center;
+            border: 1px solid black;
+            padding-bottom: 8px;
+            padding-top: 8px;
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+        .session-description {
+            padding-right: 140px;
+            padding-left: 140px;
+        }
+        .home-options a {
+            text-decoration:none;
+            color: black;
+            font-size: 20px;
+            display: block;
+        }
+        .home-options a:hover {
+            background-color: #05386B;
+            color: #EDF5E1;
+            transition: 0.10s;
+        }
+        .account-information {
+            margin: 20px;
+        }
+        .account-information label{
+            display: block;
+        }
+        .account-information input{
+            width: 20%;
+            height: 23px;
+            background-color: #EDF5E1;
+            border-radius: 2px;
+            margin-bottom: 20px;
+        }
+        .account-information button {
+            text-align: center;
+            margin-left: 83px;
+            margin-top: 6px;
+            width: 65px;
+            height 8px;
+            background-color: #EDF5E1;
+            padding: 1px;
+            cursor: pointer;
+        }
+        .student-entry {
+            width: 100%;
+            height: 15px;
+            background-color: #EDF5E1;
+            border-radius: 3px;
+            margin-bottom: 10px;
+        }
+        .student-db-button {
+            text-align: center;
+            align: center;
+            margin-top: 15px;
+            margin-left: 565px;
+            width: 95px;
+            height 8px;
+            background-color: #EDF5E1;
+            padding: 1px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="headernav">
+        <a href="/account/home">Home</a>
+        <a href="/account/logout">Log Out</a>
+        {% if user.is_authenticated %}
+        <p>
+            Logged in as {{user.username}}
+            {% if user.admin_status %}
+            (Admin)
+            {% endif %}
+        </p>
+        {% endif %}
+    </div>
+    <div class="container">{% block content %} {% endblock %}</div>
+
+<script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+></script>
+<script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+></script>
+<script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+></script>
+</body>
+</html>

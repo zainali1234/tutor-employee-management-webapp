@@ -1,0 +1,82 @@
+{% extends "user-page.html" %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div align="center">
+<h3>Student Registration</h3>
+<h4>Please fill out information regarding the student.</h4>
+<form method="POST" autocomplete="off">
+<div>
+    <label class="label">1.) Enter the name of the student: </label>
+    <input class="input"
+      id="student-name"
+      name="student-name"
+      placeholder="Enter student name"
+    />
+    </div>
+    <br>
+    <div>
+    <label class="label">2.) Enter the grade level of the student: </label>
+    <input class="input"
+      id="grade-level"
+      name="grade-level"
+      placeholder="Enter grade level"
+    />
+    </div>
+    <br>
+    <div>
+    <label class="label">3.) Enter the student's age: </label>
+    <input class="input"
+      id="student-age"
+      name="student-age"
+      placeholder="Enter age"
+    />
+    </div>
+    <br>
+    <div>
+    <label class="label">4.) Enter the name of the student's parent or guardian: </label>
+    <input class="input"
+      id="parent-name"
+      name="parent-name"
+      placeholder="Enter parent name"
+    />
+    </div>
+    <br>
+    <div>
+    <label class="label">5.) Enter the email of the student's parent or guardian: </label>
+    <input class="input"
+      id="parent-email"
+      name="parent-email"
+      placeholder="Enter parent email"
+    />
+    </div>
+    <br>
+    <div>
+        <div>
+    <label class="label">6.) Enter other information about the student that may not have been covered (optional): </label>
+        </div>
+    <textarea  id="other-info" name="other-info" class="other-info"></textarea>
+    </div>
+
+    <button class="btn btn-primary">Register Student</button>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    {% for category, message in messages %}
+    {% if category == 'error' %}
+    <div class="alert alert-danger alter-dismissable fade show" role="alert">
+      {{ message }}
+      <button type="button" class="close" data-dismiss="alert">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {% else %}
+    <div class="alert alert-success alter-dismissable fade show" role="alert">
+      {{ message }}
+      <button type="button" class="close" data-dismiss="alert">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {% endif %} {% endfor %} {% endif %} {% endwith %}
+</form>
+</div>
+{% endblock %}
