@@ -1,3 +1,5 @@
+# registers the Blueprints, database schemas, and User functionalities into the 
+# flask application
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from os import path
