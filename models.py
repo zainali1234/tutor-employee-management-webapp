@@ -1,4 +1,6 @@
 from . import db
+# holds the student, employee, and session form database schemas and their attributes, which can 
+# be referenced within the Jinja2 template in HTML
 from flask_login import UserMixin
 from sqlalchemy.sql import func
 
